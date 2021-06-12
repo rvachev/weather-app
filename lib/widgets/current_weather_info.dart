@@ -33,7 +33,10 @@ class CurrentWeatherInfo extends StatelessWidget {
                         placeholder: (context, url) => Container(
                             height: 64,
                             width: 64,
-                            child: CircularProgressIndicator())),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: CircularProgressIndicator(),
+                            ))),
                   ],
                 ),
                 Text(data.description + ' ',
@@ -91,7 +94,12 @@ class CurrentWeatherInfo extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: element.iconUrl,
               placeholder: (context, url) => Container(
-                  height: 64, width: 64, child: CircularProgressIndicator()),
+                  height: 64,
+                  width: 64,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: CircularProgressIndicator(),
+                  )),
             ),
             Text(getWeatherString(element.tempreture)),
             Text(

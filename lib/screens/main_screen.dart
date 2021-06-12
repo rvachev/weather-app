@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:weather_app/screens/today_weather.dart';
 import 'package:weather_app/screens/weather_forecast.dart';
 
@@ -9,9 +10,23 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final _controller = TextEditingController();
+  SharedPreferences sharedPreferences;
 
   String city = 'Омск';
   bool isSearching = false;
+
+  @override
+  void initState() {
+    getCurrentCity();
+    super.initState();
+  }
+
+  void getCurrentCity() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    setState(() {
+      city = sharedPreferences.getString('currentCity') ?? 'Омск';
+    });
+  }
 
   @override
   void dispose() {

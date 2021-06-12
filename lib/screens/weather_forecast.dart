@@ -52,7 +52,12 @@ class _WeatherForecastState extends State<WeatherForecast> {
         trailing: CachedNetworkImage(
           imageUrl: element.iconUrl,
           placeholder: (context, url) => Container(
-              height: 64, width: 64, child: CircularProgressIndicator()),
+              height: 64,
+              width: 64,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: CircularProgressIndicator(),
+              )),
         ),
       ));
       listOfWidgets.add(Divider());
