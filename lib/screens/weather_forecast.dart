@@ -6,7 +6,7 @@ import 'package:weather_app/utils.dart';
 class WeatherForecast extends StatefulWidget {
   final String city;
 
-  const WeatherForecast({@required this.city});
+  const WeatherForecast({required this.city});
 
   @override
   _WeatherForecastState createState() => _WeatherForecastState();
@@ -34,9 +34,8 @@ class _WeatherForecastState extends State<WeatherForecast> {
     );
   }
 
-  Future<Null> refreshList() async {
+  Future<void> refreshList() async {
     setState(() {});
-    return null;
   }
 
   List<Widget> getListForecast(List<Weather> weatherList) {

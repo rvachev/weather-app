@@ -6,8 +6,8 @@ import 'package:weather_app/utils.dart';
 
 class CurrentWeatherInfo extends StatelessWidget {
   const CurrentWeatherInfo({
-    Key key,
-    @required this.data,
+    Key? key,
+    required this.data,
   }) : super(key: key);
 
   final Weather data;
@@ -87,7 +87,7 @@ class CurrentWeatherInfo extends StatelessWidget {
 
   List<Widget> getHourlyForecasts() {
     List<Widget> hourlyForecast = [];
-    this.data.hourlyForecast.forEach((element) {
+    data.hourlyForecast?.forEach((element) {
       hourlyForecast.add(Center(
         child: Column(
           children: [

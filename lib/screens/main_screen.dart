@@ -10,7 +10,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final _controller = TextEditingController();
-  SharedPreferences sharedPreferences;
+  late SharedPreferences sharedPreferences;
 
   String city = 'Омск';
   bool isSearching = false;

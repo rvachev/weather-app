@@ -28,11 +28,11 @@ Future<Weather> fetchWeather(String city) async {
       await prefs.setString('currentCity', city);
       return Weather.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
     } else {
-      String jsonBody = prefs.getString('jsonCurrent');
+      String jsonBody = prefs.getString('jsonCurrent') ?? '';
       return Weather.fromJson(jsonDecode(jsonBody));
     }
   } catch (exception) {
-    String jsonBody = prefs.getString('jsonCurrent');
+    String jsonBody = prefs.getString('jsonCurrent') ?? '';
     return Weather.fromJson(jsonDecode(jsonBody));
   }
 }
@@ -61,7 +61,7 @@ Future<List<Weather>> fetchWeatherForecast(String city) async {
       return weatherForecast;
     } else {
       List<Weather> weatherForecast = [];
-      String jsonBody = prefs.getString('jsonForecast');
+      String jsonBody = prefs.getString('jsonForecast') ?? '';
       List<dynamic> forecast = jsonDecode(jsonBody)['forecast']['forecastday'];
       forecast.forEach((element) {
         weatherForecast.add(Weather.fromJsonForecast(element));
@@ -70,7 +70,7 @@ Future<List<Weather>> fetchWeatherForecast(String city) async {
     }
   } catch (exception) {
     List<Weather> weatherForecast = [];
-    String jsonBody = prefs.getString('jsonForecast');
+    String jsonBody = prefs.getString('jsonForecast') ?? '';
     List<dynamic> forecast = jsonDecode(jsonBody)['forecast']['forecastday'];
     forecast.forEach((element) {
       weatherForecast.add(Weather.fromJsonForecast(element));

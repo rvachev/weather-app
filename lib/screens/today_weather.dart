@@ -6,7 +6,7 @@ import 'package:weather_app/widgets/current_weather_info.dart';
 class TodayWeather extends StatelessWidget {
   final String city;
 
-  const TodayWeather({@required this.city});
+  const TodayWeather({required this.city});
 
   @override
   Widget build(BuildContext context) {
